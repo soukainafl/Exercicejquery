@@ -1,0 +1,162 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+    <title>ajax</title>
+    <script src="jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+
+     <h1>Exercice1</h1>
+     <hr>
+     <div class=" colonne">
+
+        <div>
+        <div><img src="a.jpg" id="imge1"/></div>
+        </div>
+        <div>
+        <div><img src="b.jpg" id="imge2" /></div>
+        </div>
+        <div>
+        <div><img src="d.jpg" id="imge3" /></div>
+        </div>
+        </div>
+         <h1>Exrcice2</h1>
+        <form action="javascript:void(0);" id="form">
+          <label id=>nom de utilisateur </label><br><br>
+          <input type="text"id="nom"><br>
+          <label id=>mot de passe courant</label><br>
+          <input type="text"id="courantm">    
+          <br>
+          <label id=> nouveau mot de passe </label> <br>
+          <input type="text"id="nouveaum"><br>
+          <label id=> confirmation de mote de passe </label> <br>
+          <input type="text"id="conferm"><br>
+          <Label id="fort">trés sécurité </Label><br>
+          <Label id="moyenn"> en cournt faible </Label><br>
+          <Label id="faible">trés faible </Label><br>
+         <button id="valide">valide</button>
+         </form>
+          <h1>Exercice3</h1>
+          <div id="res"></div>
+          <button id="btn2">Get Description</button>
+
+ <script>
+     
+// ------------methode1-------
+ $(function () {
+    $("img").hover(function(){
+    $(this).width(1.25*$(this).width());
+    $(this).height(1.25*$(this).height());
+    },function(){
+        $(this).width(0.8*$(this).width());
+    $(this).height(0.8*$(this).height());
+    });
+ });
+ // ------------methode2------
+//   $(document).ready(function()
+//   {
+//       $("img").mouseenter(function()
+//       {
+//           $(this).css({
+//               "width":"450px", "height":"500px"
+//           })
+//       })
+//       $("img").mouseout(function()
+//       {
+//           $(this).css({
+//               "width":"400px", "height":"200px"
+//           })
+//       })
+
+//   });
+  
+// -----------------exercice 2--------
+ $(function(){
+    
+ 
+      $("#fort").hide();
+      $("#moyenn").hide();
+     $("#faible").hide();
+    });
+
+ 
+ function test(){
+ 
+     var nom = $("#nom").val();// Find all elements with class "foo"
+     var courantm=$("#courantm").val();
+     var nouveaum=$("#nouveaum").val();
+     var confirm =$("#conferm").val();  
+   
+      if (nom ==""||nouveaum ==""||courantm =="" || confirm=="")
+      {
+       alert("vide");
+           $("input").css("border-bottom","2px solid red");
+          
+   
+    
+           }
+      else if ( courantm==nouveaum)
+       {
+           alert("entre un nouveau mote de passe ");
+           $("#courantm").css("border-bottom","2px solid red");
+           $("#nouveaum").css("border-bottom","2px solid red");
+     
+       } else if (nouveaum!=confirm)
+       {
+           alert("les mots de passe ne sont pas identiques");
+       }
+       else 
+
+       {
+           alert ("bien enregistre");
+       }
+ 
+}
+
+    $("#conferm").keyup(function(){
+        var confirm =$("#conferm").val();    
+    var strongRegex ="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})";           
+    var RegexM = "^((?=.*[a-z])|(?=.*[A-Z])|(?=.*[0-9]))(?=.{8,})";
+        if(confirm.match(strongRegex))
+        $("#fort").show();
+        else if (conferm.match(RegexM))
+        $("#moyenn").show();
+        else
+        $("#faible").show();
+
+    });
+
+
+ $("#valide").click(function(){
+
+ test();
+ });
+
+// -------------- exercice3-----------------
+ $(document).ready(function(){
+
+
+$("#btn2").click(function(){
+
+    $.getJSON('phone.json', function(data){
+        
+
+        document.getElementById("res").innerHTML = "le nom est: " +data.nom +"<br>"+"description est : "+ data.description +"<br>"+"processeur  est :"+data.Processeur+"<br>"+"Ram est : "+data.Ram+"<br>"+"Os est : "+data.Os+"<br>"+
+        "Flash est :"+data.Flash+"<br>"+"Resolution est : "+data.Resolution;
+    })
+
+   
+})
+});
+
+ </script>
+ </body>
+</html>

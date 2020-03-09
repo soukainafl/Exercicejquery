@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!--  <link rel="stylesheet" type="text/css" href="style.css"/>--> 
+    <script src="jquery-3.4.1.js"></script>
+    <title>Document</title>
+    <style>
+        h1{
+            color: green;
+            text-align: center;
+            font-size: 33px;
+            background-color: gray;
+            
+        }
+    </style>
+</head>
+<body>
+
+    <h1> bienvenue  a jquery </h1>
+    <input type="text">
+    <p class="p1">premier paraghraphe</p>
+    <p class="p2">  un deuxieme parghraphe</p>
+    <button>Click</button>
+   <script>
+     //  $('p').hide(); // cache les element 
+    //   $('h1').hide(); 
+//     $('.para').hide();
+//   // exp1
+//        $(selecteur).method1().method2().method3();
+//     //exp2
+//          window.addEventListener('load',monScript);
+//          function monScript()
+//          {
+
+//          }  
+//         //exp3
+//          $(document).ready(function() 
+//          {
+//              // 
+//          } );  
+//        //exp4
+//        $(function()
+//        {
+
+//        }); 
+         // les evenement 
+        // $(document).ready(function()
+        //   {
+        //      $('p').click( function(){
+
+        //      $(this).hide(); 
+
+        //     });
+        // });
+         //cache les elemenet 
+    //      $(document).ready(function()
+    //     {
+    //     $('.p2').hide();
+    //     $('.p1').mouseenter(function(){
+    //     $('.p2').show();
+    //      });
+    //      $('.p1').mouseleave(function()
+    //   {
+    //    $('.p2').hide();
+    //   });
+
+        // });
+        //methode2 
+        $(document).ready(function()
+        {
+            $('.p2').hide();
+            $('.p1').hover(
+                function(){ $('.p2').show();},
+               function(){ $('.p2').hide();}
+                
+            
+
+            );
+        });
+    //    $(document).ready(function()
+    //    {
+    //        $('button').click(function()
+    //             {
+    //                 $('h1').css({'color': 'red'});
+                        
+    //              $('h1').animate({
+    //                  'left': 10%,
+    //              })  
+    //             })
+    //         });
+        
+       
+    //   $(function(){
+    //     $('button').click(function(){
+
+    //        var text= $('input').val();
+    //        $('p.p1').text(text);
+    //        $('h1').hide(2000);
+
+    //     });
+    //   });
+
+           
+   </script>
+</body>
+</html>
